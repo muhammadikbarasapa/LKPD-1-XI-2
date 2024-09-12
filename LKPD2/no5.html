@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            display: none;
+        }
+        body{
+            background-color:rgb(55, 58, 65);
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <h2>status ayah</h2>
+        <div>
+            <div>
+                <label for="hidup">Masih Hidup</label>
+                <input type="radio" name="tipe" id="hidup" value="hidup" onclick="munculkan(this)">
+            </div>
+            <div>
+                <label for="meninggal">Meninggal</label>
+                <input type="radio" name="tipe" id="meninggal" value="meninggal" onclick="munculkan(this)">
+            </div>
+            <div>
+                <label for="hilang">Tidak Diketahui</label>
+                <input type="radio" name="tipe" id="hilang" value="hilang" onclick="munculkan(this)">
+            </div>
+        </div>
+
+        <div class="wrapper" id="wrapper">
+            <div>
+                <label for="pendidikanAyah" id="labelPendidikan">Pendidikan Ayah</label>
+                <input type="text" name="pendidikanAyah" id="pendidikanAyah">
+            </div>
+            <div>
+                <label for="pekerjaanAyah" id="labelPekerjaan">Pekerjaan Ayah</label>
+                <input type="text" name="pekerjaanAyah" id="pekerjaanAyah">
+            </div>
+            <div>
+                <label for="deskripsiPekerjaan" id="labelDeskripsi">Deskripsi Pekerjaan Ayah</label>
+                <input type="text" name="deskripsiPekerjaan" id="deskripsiPekerjaan">
+            </div>
+            <div>
+                <label for="penghasilanAyah" id="labelPenghasilan">Total Penghasilan Ayah per Bulan</label>
+                <input type="text" name="penghasilanAyah" id="penghasilanAyah">
+            </div>
+            <div>
+                <label for="detailKerja" id="labelDetail">Detail Kerja Ayah (lama bekerja, kondisi kesehatan, karir)</label>
+                <input type="text" name="detailKerja" id="detailKerja">
+            </div>
+        </div>
+    </form>
+
+    <script>
+        function munculkan(e) {
+            document.getElementById("wrapper").style.display = "block";
+
+            if (e.value == "hidup") {
+                document.getElementById("labelDetail").innerText = 'Detail kerja Ayah (lama bekerja, kondisi kesehatan, karir)';
+            } else if(e.value == "meninggal") {
+                document.getElementById("labelDetail").innerText = 'Detail pekerjaan Ayah semasa hidup';
+            } else {
+                document.getElementById("labelDetail").innerText = 'Tidak diketahui';
+                document.getElementById("wrapper").style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
